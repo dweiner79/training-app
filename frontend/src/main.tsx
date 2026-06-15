@@ -21,6 +21,7 @@ msalInstance.addEventCallback((event) => {
 })
 
 await msalInstance.initialize()
+await msalInstance.handleRedirectPromise().catch(() => null)
 
 const accounts = msalInstance.getAllAccounts()
 if (accounts.length > 0) {

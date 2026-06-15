@@ -35,7 +35,9 @@ function App() {
           <button
             className="btn-primary w-full"
             onClick={() =>
-              instance.loginRedirect({ scopes: graphScopes.profile })
+              instance.loginPopup({ scopes: graphScopes.profile })
+                .then(result => instance.setActiveAccount(result.account))
+                .catch(console.error)
             }
           >
             Sign in with Microsoft
