@@ -11,7 +11,8 @@
         var search = window.location.search;
         if (search.startsWith('?p=')) {
           var path = decodeURIComponent(search.slice(3));
-          window.history.replaceState(null, null, path || '/');
+          var base = window.location.pathname.replace(/\/$/, '');
+          window.history.replaceState(null, null, base + (path || '/'));
         }
       })();
     </script>
