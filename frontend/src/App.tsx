@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from '@azure/msal-react'
 import { InteractionStatus } from '@azure/msal-browser'
 import { graphScopes } from './auth/msalConfig'
@@ -54,7 +54,7 @@ function App() {
         <LoginPage />
       </UnauthenticatedTemplate>
       <AuthenticatedTemplate>
-        <BrowserRouter basename={import.meta.env.BASE_URL}>
+        <HashRouter>
           <div className="min-h-screen bg-gray-50">
             <NavBar />
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -68,7 +68,7 @@ function App() {
             </main>
             <ChatWidget />
           </div>
-        </BrowserRouter>
+        </HashRouter>
       </AuthenticatedTemplate>
     </>
   )
