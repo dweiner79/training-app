@@ -13,7 +13,7 @@ const app = express()
 const PORT = Number(process.env.PORT ?? 4000)
 
 // ── Middleware ──────────────────────────────────────────────────────────────
-const allowedOrigins = (process.env.CORS_ORIGINS ?? 'http://localhost:3000').split(',')
+const allowedOrigins = (process.env.CORS_ORIGINS ?? 'http://localhost:3000,https://dweiner79.github.io').split(',')
 app.use(
   cors({
     origin: (origin, callback) => {
