@@ -34,8 +34,10 @@ function LoginPage() {
           className="btn-primary w-full"
           onClick={() =>
             instance.loginPopup({ scopes: graphScopes.profile })
-              .then(result => instance.setActiveAccount(result.account))
-              .catch(console.error)
+              .then(result => {
+                if (result?.account) instance.setActiveAccount(result.account)
+              })
+              .catch(err => alert('Login error: ' + err.message))
           }
         >
           Sign in with Microsoft

@@ -8,7 +8,7 @@ export const msalConfig: Configuration = {
     postLogoutRedirectUri: '/',
   },
   cache: {
-    cacheLocation: 'sessionStorage',
+    cacheLocation: 'localStorage',
     storeAuthStateInCookie: false,
   },
   system: {
