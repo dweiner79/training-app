@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { useIsAuthenticated, useMsal } from '@azure/msal-react'
+import { useMsal } from '@azure/msal-react'
 import { InteractionStatus } from '@azure/msal-browser'
 import { graphScopes } from './auth/msalConfig'
 import NavBar from './components/NavBar/NavBar'
@@ -11,8 +11,8 @@ import ChatWidget from './components/ChatWidget/ChatWidget'
 import LoadingSpinner from './components/LoadingSpinner'
 
 function App() {
-  const isAuthenticated = useIsAuthenticated()
-  const { instance, inProgress } = useMsal()
+  const { instance, inProgress, accounts } = useMsal()
+  const isAuthenticated = accounts.length > 0
 
   if (inProgress === InteractionStatus.Startup || inProgress === InteractionStatus.HandleRedirect) {
     return <LoadingSpinner fullScreen />
